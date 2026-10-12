@@ -1,0 +1,50 @@
+name: two_friends_chat
+description: A multi-user chat app with voice notes and WebRTC calling, built with Flutter and Supabase.
+publish_to: "none"
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.3.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # --- Backend -------------------------------------------------------------
+  # NOTE: do not raise to 2.16+ — it requires Dart ^3.9 and this project is
+  # pinned to Flutter 3.32.4 (Dart 3.8.1).
+  supabase_flutter: ^2.15.4
+
+  # --- Firebase ------------------------------------------------------------
+  firebase_core: ^2.24.2
+  firebase_messaging: ^14.7.10
+
+  # --- Calling -------------------------------------------------------------
+  flutter_webrtc: ^1.6.2+hotfix.4
+
+  # --- Voice notes ---------------------------------------------------------
+  record: ^6.2.1          # 7.x requires Dart ^3.12
+  just_audio: ^0.10.6
+  path_provider: ^2.1.5
+  # 13.x pulls permission_handler_android 14.x, which needs AGP 9. This
+  # project is on AGP 8.7.3, so stay on the 12.x line (android impl 13.x).
+  permission_handler: ^12.0.3
+
+  # --- Notifications -------------------------------------------------------
+  # awesome_notifications is used instead of flutter_local_notifications
+  # because the latter depends on `timezone`, which has no release that
+  # resolves on Dart 3.8 (0.9/0.10 cap at <3.0.0; 0.11 needs ^3.10.0).
+  awesome_notifications: ^0.12.1
+
+  # --- Utilities -----------------------------------------------------------
+  shared_preferences: ^2.5.3
+  uuid: ^4.6.0
+  intl: ^0.20.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+
+flutter:
+  uses-material-design: true
